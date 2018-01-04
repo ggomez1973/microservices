@@ -1,12 +1,14 @@
 ---
 spring:
-  profile: test
+  profiles: test
 DBURL: jdbc:mysql://host1:33060/test_db
 
+---
 spring:
-  profile: integration
+  profiles: integration
 DBURL: jdbc:mysql://host2:33060/integration_db
 
+---
 spring:
-  profile: production
+  profiles: production
 DBURL: dynamodb://host2:33060/production_db

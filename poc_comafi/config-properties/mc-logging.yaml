@@ -1,12 +1,14 @@
 ---
 spring:
-  profile: test
+  profiles: test
 DBURL: jdbc:oracle://host1:33060/test_db
 
+---
 spring:
-  profile: integration
+  profiles: integration
 DBURL: jdbc:oracle://host2:33060/integration_db
 
+---
 spring:
-  profile: production
+  profiles: production
 DBURL: mongodb://host2:33060/production_db
