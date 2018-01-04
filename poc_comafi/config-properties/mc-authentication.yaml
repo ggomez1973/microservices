@@ -1,11 +1,14 @@
 ---
-profile: test
-DB_URL: jdbc:mysql://host1:33060/test_db
+spring:
+  profile: test
+DB_URL: jdbc:oracle://host1:33060/test_db
 
 ---
-profile: integration
-DB_URL: jdbc:mysql://host2:33060/integration_db
+spring:
+  profile: integration
+DB_URL: jdbc:oracle://host2:33060/integration_db
 
 ---
-profile: production
-DB_URL: jdbc:mysql://host2:33060/production_db
+spring:
+  profile: production
+DB_URL: mongodb://host2:33060/production_db
