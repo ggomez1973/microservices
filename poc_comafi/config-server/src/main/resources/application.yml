@@ -1,0 +1,13 @@
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kennyk65/Microservices-With-Spring-Student-Files
+          searchPaths: config-properties
+        # "local" se usa cuando esta el perfil activo para pruebas locales
+        local:
+          searchLocations: classpath:offline-repository/
+server:
+  port: 8001
