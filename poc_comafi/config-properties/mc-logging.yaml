@@ -1,2 +1,11 @@
 ---
-DB_URL: oracle@lilita:666/sarasa
+profile: test
+DB_URL: jdbc:oracle://host1:33060/test_db
+
+---
+profile: integration
+DB_URL: jdbc:oracle://host2:33060/integration_db
+
+---
+profile: production
+DB_URL: mongodb://host2:33060/production_db
