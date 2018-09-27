@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 logging:
   level:
     root: ERROR
@@ -9,3 +10,16 @@ logging:
           conejo: DEBUG
   pattern:
     console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+=======
+spring:
+  profiles:
+    active: sender
+
+logging:
+  level:
+    org: ERROR
+
+tutorial:
+  client:
+    duration: 10000
+>>>>>>> 9a0339c807cd45f42d056f70cba23fa81ab753cb
