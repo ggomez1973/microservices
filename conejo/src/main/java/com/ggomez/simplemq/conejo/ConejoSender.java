@@ -1,21 +1,28 @@
 package com.ggomez.simplemq.conejo;
 
-import org.springframework.amqp.core.Queue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
-public class ConejoSender {
+@Component
+public class ConejoSender implements CommandLineRunner {
+
+    private static final Logger logger = LoggerFactory.getLogger(ConejoSender.class);
+
     @Autowired
     private RabbitTemplate template;
 
-    @Autowired
-    private Queue queue;
+    public ConejoSender(RabbitTemplate template) {
+        this.template = template;
+    }
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 500)
-    public void enviar() {
-        String message = "Mensaje simple!";
-        this.template.convertAndSend(queue.getName(), message);
-        System.out.println(" [x] Sent '" + message + "'");
+    @Override
+    public void run(String... args) throws Exception {
+        logger.debug("Enviando mensaje...");
+        template.convertAndSend(ConejoApplication.topicExchangeName, ConejoApplication.routingKey, "A darle atomos!");
     }
 }
+
