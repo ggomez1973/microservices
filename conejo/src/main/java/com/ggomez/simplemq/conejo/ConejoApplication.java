@@ -1,6 +1,5 @@
 package com.ggomez.simplemq.conejo;
 
-<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Binding;
@@ -47,23 +46,5 @@ public class ConejoApplication {
 
 	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(ConejoApplication.class, args).close();
-=======
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.annotation.EnableScheduling;
-
-@SpringBootApplication
-@EnableScheduling
-public class ConejoApplication {
-	@Bean
-	public CommandLineRunner tutorial() {
-		return new RabbitAmqpRunner();
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(ConejoApplication.class, args);
->>>>>>> 9a0339c807cd45f42d056f70cba23fa81ab753cb
 	}
 }
