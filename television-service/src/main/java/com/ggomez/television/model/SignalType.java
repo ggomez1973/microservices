@@ -1,5 +1,15 @@
 package com.ggomez.television.model;
 
-public enum SignalType {
-    NORMAL, HD, HD4K
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Data
+@Document
+@NoArgsConstructor
+@AllArgsConstructor
+public class SignalType {
+    private String signalTypeId; //_id
+    private String description;
 }

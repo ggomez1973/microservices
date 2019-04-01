@@ -8,5 +8,7 @@ public class TelevisionServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TelevisionServiceApplication.class, args);
+
+
 	}
 }
