@@ -1,0 +1,13 @@
+security.basic.enable: false
+management.security.enabled: false
+spring:
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+         uri: https://github.com/ggomez1973/microservices/triplepack
+         searchPaths: triplepack-config
+         #uri: file:///home/german/misrepos/microservices/triplepack/triplepack-config
+
