@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 class GreetingController {
     private static final Logger LOG = Logger.getLogger(GreetingController.class.getName());
 
-    @RequestMapping("/")
+    @RequestMapping("/telebosta")
     public String getGreeting(){
         LOG.info("La concha de tu hermana All Boys");
         return "Sarasa!!!";

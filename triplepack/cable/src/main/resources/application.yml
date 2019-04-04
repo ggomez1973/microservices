@@ -1,3 +1,5 @@
 spring:
    application:
-      name: cable
+      name: cable-service
+server:
+   port: 8082
