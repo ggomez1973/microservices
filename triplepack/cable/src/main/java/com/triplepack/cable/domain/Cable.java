@@ -1,5 +1,6 @@
-package com.triplepack.cable.query;
+package com.triplepack.cable.domain;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +9,7 @@ import java.util.Objects;
 @Document
 public class Cable {
     @Id
-    private String id;
+    private ObjectId _id;
     private String name;
     private String description;
     private Double price;
@@ -18,20 +19,20 @@ public class Cable {
         // Required by MongoDB?
     }
 
-    private Cable(String id, String name, String description, Double price, Boolean hasDiscount) {
-        this.id = id;
+    private Cable(ObjectId id, String name, String description, Double price, Boolean hasDiscount) {
+        this._id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.hasDiscount = hasDiscount;
     }
 
-    public static Cable createCable(String id, String name, String description, Double price, Boolean hasDiscount) {
+    public static Cable createCable(ObjectId id, String name, String description, Double price, Boolean hasDiscount) {
         return new Cable(id, name, description, price, hasDiscount);
     }
 
-    public String getId() {
-        return id;
+    public ObjectId getId() {
+        return _id;
     }
 
     public String getName() {
@@ -55,7 +56,7 @@ public class Cable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cable cable = (Cable) o;
-        return Objects.equals(id, cable.id) &&
+        return Objects.equals(_id, cable._id) &&
                 Objects.equals(name, cable.name) &&
                 Objects.equals(description, cable.description) &&
                 Objects.equals(price, cable.price) &&
@@ -65,13 +66,13 @@ public class Cable {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, description, price, hasDiscount);
+        return Objects.hash(_id, name, description, price, hasDiscount);
     }
 
     @Override
     public String toString() {
         return "cable{" +
-                "id='" + id + '\'' +
+                "id='" + _id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
