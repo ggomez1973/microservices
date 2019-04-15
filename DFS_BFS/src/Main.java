@@ -1,7 +1,11 @@
 import java.text.DecimalFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.OptionalInt;
 import java.util.function.Function;
@@ -21,7 +25,36 @@ public class Main {
         //staircase(5);
         //miniMaxSum(new int[]{8,5,3,4,5});
         //birthdayCakeCandles(new int[]{3,2,1,3});
+        //militaryTime("07:05:45PM");
+        gridSearch(new String[]{"3830589324","2229505813","5633845374","6473530293","7053106601"},new String[]{"9505","3845","3530"});
+    }
 
+    private static void gridSearch(String[] G, String[] P) {
+            int n = G[0].length() - P[0].length() + 1;
+            String delimiter = " ";
+            String pad = String.format(".{%s}", n);
+            String grid = String.format("%s%s", String.join(delimiter, G), String.join("", Collections.nCopies(n, delimiter)));
+            String regex = String.format(".*%s%s.*", String.join(pad, P), pad);
+            System.out.println(pad);
+            System.out.println(grid);
+            System.out.println(regex);
+            System.out.println(grid.matches(regex)? "YES" : "NO");
+            //return grid.matches(regex)? "YES" : "NO";
+    }
+
+    private static void militaryTime(String s) {
+        String result =                                       // Text representing the value of our date-time object.
+                LocalTime.parse(                                  // Class representing a time-of-day value without a date and without a time zone.
+                        s,                                  // Your `String` input text.
+                        DateTimeFormatter.ofPattern(                  // Define a formatting pattern to match your input text.
+                                "hh:mm:ssa" ,
+                                Locale.US                                 // `Locale` determines the human language and cultural norms used in localization. Needed here to translate the `AM` & `PM` value.
+                        )                                             // Returns a `DateTimeFormatter` object.
+                )                                                 // Return a `LocalTime` object.
+                        .format( DateTimeFormatter.ofPattern("HH:mm:ss") )   // Generate text in a specific format. Returns a `String` object.
+                ;
+        System.out.println(result);
+        // return LocalTime.parse(s, DateTimeFormatter.ofPattern("hh:mm:ssa", Locale.US)).format( DateTimeFormatter.ofPattern("HH:mm"));
     }
 
     private static void birthdayCakeCandles(int[] ar) {
