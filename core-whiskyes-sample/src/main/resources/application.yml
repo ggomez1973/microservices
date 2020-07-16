@@ -1,0 +1,10 @@
+spring.application.name: core-whiskyes-sample
+
+# Pretty print?
+spring.output.ansi.enabled: ALWAYS
+
+management:
+     endpoints.web.exposure.include: '*'
+     endpoint:
+       health:
+         show-details:always

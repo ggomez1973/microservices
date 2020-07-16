@@ -1,0 +1,12 @@
+spring.application.name: core-whiskyes-sample
+# Dynamic port allocation
+server.port: 0
+
+# Pretty print?
+spring.output.ansi.enabled: ALWAYS
+
+management:
+  endpoints.web.exposure.include: '*'
+  endpoint:
+    health:
+      show-details:always
