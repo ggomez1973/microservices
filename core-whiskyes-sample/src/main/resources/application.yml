@@ -1,7 +1,12 @@
 spring.application.name: core-whiskyes-sample
 
-# Pretty print?
-spring.output.ansi.enabled: ALWAYS
+spring:
+  cloud:
+    config:
+      uri: http://localhost:44943
+  output:
+    ansi:
+      enabled: ALWAYS
 
 management:
      endpoints.web.exposure.include: '*'
