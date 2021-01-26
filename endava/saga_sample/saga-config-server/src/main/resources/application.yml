@@ -1,0 +1,16 @@
+security.basic.enable: false
+management.security.enabled: false
+spring:
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ggomez1973/microservices
+          searchPaths: endava/saga-config
+          #uri: ssh://git@github.com/ggomez1973/microservices.git
+          #uri: file:///home/german/misrepos/microservices/triplepack/triplepack-config
+          #skip-ssl-valitation: true
+          #username: ggomez1973
+          #password: password
